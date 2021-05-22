@@ -45,8 +45,12 @@ export default {
   },
   data() {
     return {
-      items: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+      items: []
     }
+  },
+    created() {
+          this.$http.get('/products/list')
+              .then((response) => this.items = response.data)
+      }
   }
-}
 </script>

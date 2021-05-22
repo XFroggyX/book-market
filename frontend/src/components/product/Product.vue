@@ -1,40 +1,43 @@
 <template>
-  <div>
     <div class="book">
-      <img src="img/book2.jpg" alt="">
-      <div>
-        <span class="author"><router-link :to="{name: 'AuthorCatalog'}">Лев Толстой</router-link></span>
-        <h5><router-link :to="{name: 'ProductInfo'}">Война и мир</router-link></h5>
-        <div>
-          <b>1900$</b>
-          <button class="btn btn-outline-dark w-60 btn-cart" @click="addToCart">
-            Купить
-          </button>
-        </div>
-      </div>
+        <router-link :to="{name: 'ProductInfo', params: {id: item.id}}">
+            <img :src="item.image" alt="">
+        </router-link>
+            <div>
+                <router-link :to="{name: 'ProductInfo', params: {id: item.id}}">
+                    <span class="author"><router-link :to="{name: 'AuthorCatalog'}">{{item.author}}</router-link></span>
+                    <h5><router-link :to="{name: 'ProductInfo'}">{{item.book_name}}</router-link></h5>
+                </router-link>
+                <div>
+                    <router-link :to="{name: 'ProductInfo', params: {id: item.id}}">
+                        <b>{{item.price}}$</b>
+                    </router-link>
+                    <button class="btn btn-outline-dark w-60 btn-cart" @click="addToCart">
+                        Купить
+                    </button>
+                </div>
+            </div>
     </div>
-  </div>
 </template>
 
 <script>
-let click = 0
 export default {
   name: "Product",
   props: ['item'],
   methods: {
     addToCart(event) {
-      if (click === 0) {
-        event.target.classList.remove('btn-outline-dark')
-        event.target.classList.add('btn-dark')
-        click = 1
-      } else {
-        event.target.classList.remove('btn-dark')
-        event.target.classList.add('btn-outline-dark')
-        click = 0
-      }
+        event.target.classList.toggle('button-dark-clicked')
 
+        const data = {
+            count: 1,
+            productId: this.item.id
+        }
+
+        this.$http.post('/api/cart/add', data)
+            .then((response) => {
+                alert('Товар добавлен!')
+            })
     }
   }
-
 }
 </script>

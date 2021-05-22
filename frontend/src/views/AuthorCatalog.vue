@@ -36,11 +36,15 @@ export default {
   components: {
     Product
   },
-  data() {
-    return {
-      items: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+    data() {
+        return {
+            items: []
+        }
+    },
+    created() {
+        this.$http.get('/products/list')
+            .then((response) => this.items = response.data)
     }
-  }
 }
 </script>
 

@@ -19,7 +19,7 @@
           </label>
         </div>
         <button class="w-100 btn btn-lg btn-primary" type="submit" data-nlok-ref-guid="9a5a7038-4e49-4203-b48c-97e0e4e2b4ae">Log in</button>
-        <router-link :to="{name: 'Signup'}"><button type="button" class="btn btn-primary btn-sm sign-up">Sign up</button></router-link>
+        <router-link type="button" class="btn btn-primary btn-sm sign-up" :to="{name: 'Signup'}">Sign up</router-link>
         <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
       </form>
     </div>

@@ -36,7 +36,7 @@ main a {
 }
 
 main img {
-    height: 200px;
+    height: 250px;
 }
 
 .book-container{
@@ -49,6 +49,7 @@ main img {
 .book-container img {
     width: 100%;
     position: center;
+    object-fit: cover;
 }
 
 .h-text {
@@ -59,8 +60,8 @@ main img {
 .book{
     scroll-snap-align: start;
     padding: 15px;
-    min-width: 160px;
-    max-width: 180px;
+    min-width: 200px;
+    max-width: 200px;
     overflow-x: auto;
     overflow-y: hidden;
 }
@@ -180,4 +181,9 @@ Product
 
 .product-author {
     text-decoration: underline;
+}
+
+.button-dark-clicked {
+    background: #000000;
+    color: #ffffff;
 }

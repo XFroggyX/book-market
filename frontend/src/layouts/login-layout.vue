@@ -3,7 +3,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <img src="public/img/logo2.png" class="logo" alt="">
+          <img src="../../../public/img/logo2.png" class="logo" alt="">
           <router-link class="navbar-brand" :to="{name: 'Home'}">Book-swamp</router-link>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
