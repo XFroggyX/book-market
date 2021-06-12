@@ -45,5 +45,13 @@ class CartController extends Controller
     public function add_sum()
     {
         $cart = Cart::query()->firstOrFail();
+        $count = $cart->toArray()[0];
+        $total = $cart->toArray()[1];
+        Cart::create([
+            'count' => $count,
+            'total' => $total,
+        ]);
+
+        $cart->save();
     }
 }

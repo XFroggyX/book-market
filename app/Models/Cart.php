@@ -47,9 +47,4 @@ class Cart extends Model
             'total' => $this->total,
         ];
     }
-
-    public function add_sum()
-    {
-
-    }
 }
