@@ -51,7 +51,12 @@ const routes = [
     path: '/product-info',
     name: 'ProductInfo',
     component: ProductInfo
-  }
+  },
+    {
+        path: '/catalog/:id',
+        name: 'ProductInfo',
+        component: ProductInfo
+    }
 ]
 
 const router = new VueRouter({

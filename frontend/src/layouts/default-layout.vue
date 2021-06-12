@@ -24,6 +24,7 @@
               <input class="form-control mr-2" type="search" placeholder="Книга или автор" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Поиск</button>
             </form>
+              <Cart></Cart>
           </div>
         </div>
       </nav>
@@ -43,5 +44,9 @@
 </template>
 
 <script>
-
+import Cart from "@/components/Cart";
+export default {
+    name: "default-layout",
+    components: {Cart}
+}
 </script>

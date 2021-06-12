@@ -26,7 +26,7 @@ class Product extends Model
             'genre' => $this->genre,
             'book_name' => $this->book_name,
             'image' => URL::to('/') . '/' . $this->image,
-            'price' => $this->price
+            'price' => (double)$this->price
         ];
     }
 }

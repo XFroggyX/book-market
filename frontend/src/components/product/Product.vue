@@ -27,16 +27,7 @@ export default {
   methods: {
     addToCart(event) {
         event.target.classList.toggle('button-dark-clicked')
-
-        const data = {
-            count: 1,
-            productId: this.item.id
-        }
-
-        this.$http.post('/api/cart/add', data)
-            .then((response) => {
-                alert('Товар добавлен!')
-            })
+        this.$store.commit('increment', this.item.price);
     }
   }
 }
