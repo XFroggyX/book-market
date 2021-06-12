@@ -12,7 +12,7 @@
                     <router-link :to="{name: 'ProductInfo', params: {id: item.id}}">
                         <b>{{item.price}}$</b>
                     </router-link>
-                    <button class="btn btn-outline-dark w-60 btn-cart" @click="addToCart">
+                    <button class="btn btn-outline-dark w-60 btn-cart p-lg-1" @click="addToCart">
                         Купить
                     </button>
                 </div>
@@ -21,13 +21,26 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "Product",
   props: ['item'],
   methods: {
     addToCart(event) {
+        const data = {
+            count: 1,
+            productId: this.item.id
+        }
+
+        this.$http.post('/carts/add', data)
+            .then((response) => {
+                alert('Товар добавлен!')
+            })
+
         event.target.classList.toggle('button-dark-clicked')
         this.$store.commit('increment', this.item.price);
+
     }
   }
 }

@@ -187,3 +187,14 @@ Product
     background: #000000;
     color: #ffffff;
 }
+
+.cart_space {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart_space button {
+    width: 100px;
+    margin-left: 25px;
+}

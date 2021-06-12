@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\URL;
 
 class Cart extends Model
 {
@@ -37,5 +38,18 @@ class Cart extends Model
         $this->count = $count;
         $this->total = $total;
         $this->save();
+    }
+
+    public function toArray()
+    {
+        return [
+            'count' => $this->count,
+            'total' => $this->total,
+        ];
+    }
+
+    public function add_sum()
+    {
+
     }
 }

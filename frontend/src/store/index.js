@@ -20,6 +20,10 @@ export default new Vuex.Store({
       increment(state, price) {
         state.count_items += 1
         state.price_item += price
+    },
+    clear_cart(state) {
+        state.count_items = 0
+        state.price_item = 0
     }
   },
   actions: {

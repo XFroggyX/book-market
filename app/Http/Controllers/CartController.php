@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\CartItem;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -12,9 +13,16 @@ class CartController extends Controller
      * Информация о корзине.
      * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
      */
+
     public function info()
     {
         return Cart::query()->firstOrFail();
+    }
+
+    public function list()
+    {
+        return Cart::query()
+            ->get();
     }
 
     public function add(Request $request)
@@ -32,5 +40,10 @@ class CartController extends Controller
         $cart->calculate();
 
         return $cart;
+    }
+
+    public function add_sum()
+    {
+        $cart = Cart::query()->firstOrFail();
     }
 }
